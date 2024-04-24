@@ -1,48 +1,94 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-    <head>
-        
-        <title>Amazing Webite</title>
-        <link rel="stylesheet" href="style.css">
-    
-    </head>
+<head>
+	<meta charset="utf-8">
+	<title>Bouncing Box</title>
+	<script src="jquery.min.js"></script>
+	<style>
+		.box {
+			width: 70px;
+			height: 70px;
+			background-color: teal;
+			font-size: 300%;
+			text-align: center;
+			user-select: none;
+			display: block;
+			position: absolute;
+			top: 100px;
+			left: 200px;  /* <--- Change me! */
+		}
+		.board{
+			height: 100vh;
+		}
+	</style>
+	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 
-    <body>
-        <!-- All content goes here -->
-            
-        <div id="all-contents">
-            <nav>
-                <h1>Mathew5871 Glorious Website</h1>
-                <ul id="nav-ul">
-                    <li class="nav li">
-                        <a href="index.html"> Home </a>
-                    </li>
-                    <li class="nav li">
-                        <a href="portfolio.html"> Portfolio </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-            <main>
+</head>
+<body class="board">
+	<!-- HTML for the box -->
+	<div class="box">?</div>
 
-                <!-- Sidebar section -->
-                <div class="sidebar-img">
-                    <img class="sidebar-img". src="https://www.dodge.com/content/dam/fca-brands/na/dodge/en_us/wallpapers/desktop/2021/expanded/2021-dodge-wallpaper-challenger-06.jpg.image.1440.jpg">
-                </div>
-                <!-- Content section -->
-                <div class="content">
-                    <h2>Mathew5871</h2>
-                    <p>Student at DHS</p>
-                <!-- Interests section -->
-                <div id="interests">
-                    <h3>Interests</h3>
-                    <ul>
-                        <li>Games</li>
-                        <li>TV Shows</li>
-                        <li>Cars</li>
-                    </ul>
-                </div>
-            </main>
-        </div>
-    </body>
+	<script>
+		(function(){
+			'use strict'
+			/* global jQuery */
+
+			//////////////////////////////////////////////////////////////////
+			/////////////////// SETUP DO NOT DELETE //////////////////////////
+			//////////////////////////////////////////////////////////////////
+			
+			var box = jQuery('.box');	// reference to the HTML .box element
+			var board = jQuery('.board');	// reference to the HTML .board element
+			var boardWidth = board.width();	// the maximum X-Coordinate of the screen
+
+			// Every 50 milliseconds, call the update Function (see below)
+			setInterval(update, 50);
+			
+			// Every time the box is clicked, call the handleBoxClick Function (see below)
+			box.on('click', handleBoxClick);
+
+			// moves the Box to a new position on the screen along the X-Axis
+			function moveBoxTo(newPositionX) {
+				box.css("left", newPositionX);
+			}
+
+			// changes the text displayed on the Box
+			function changeBoxText(newText) {
+				box.text(newText);
+			}
+
+			//////////////////////////////////////////////////////////////////
+			/////////////////// YOUR CODE BELOW HERE /////////////////////////
+			//////////////////////////////////////////////////////////////////
+			
+			// TODO 2 - Variable declarations 
+			var positionX = 0
+
+			
+			/* 
+			This Function will be called 20 times/second. Each time it is called,
+			it should move the Box to a new location. If the box drifts off the screen
+			turn it around! 
+			*/
+			function update() {
+                positionX = positionX + 10; 
+                
+                
+                moveBoxTo(positionX);	
+			};
+
+			/* 
+			This Function will be called each time the box is clicked. Each time it is called,
+			it should increase the points total, increase the speed, and move the box to
+			the left side of the screen.
+			*/
+			function handleBoxClick() {
+                positionX = 0;
+                changeBoxText(1);
+
+			
+			};
+		})();
+	</script>
+</body>
 </html>
