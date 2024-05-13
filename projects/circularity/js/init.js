@@ -26,16 +26,23 @@ var init = function (window) {
         // TODO 2 : Create a function that draws a circle 
         function drawCircle()
         {circle = draw.randomCircleInArea(canvas, true, true, "#999", 2);
-        physikz.addRandomVelocity(circle, canvas);
+        physikz.addRandomVelocity(circle, canvas, 5, 5);
         view.addChild(circle);
         circles.push(circle);};
 
         // TODO 3 / 7 : Call the drawCircle() function 
-        drawCircle(); 
-        drawCircle();
-        drawCircle();
-        drawCircle();
-        drawCircle();
+        drawCircle(0); 
+        drawCircle(0);
+        drawCircle(0);
+        drawCircle(0);
+        drawCircle(0);
+        drawCircle(0);
+        drawCircle(0);
+        drawCircle(0);
+        drawCircle(0);
+        drawCircle(0);
+        drawCircle(0);
+
 
         ////////////////////////////////////////////////////////////
         ///////////////// PROGRAM LOGIC ////////////////////////////
@@ -50,17 +57,28 @@ var init = function (window) {
             {
                 // TODO 4 : Update the circle's position //
               
+                physikz.updatePosition(circles[0]);
                 physikz.updatePosition(circles[1]);
                 physikz.updatePosition(circles[2]);
                 physikz.updatePosition(circles[3]);
-                physikz.updatePosition(circles[4]);
                 physikz.updatePosition(circles[5]);
+                physikz.updatePosition(circles[6]);
+                physikz.updatePosition(circles[7]);
+                physikz.updatePosition(circles[8]);
+                physikz.updatePosition(circles[9]);
+                physikz.updatePosition(circles[10]);
+                
+                
         
             // TODO 4 : Update the circle's position //
 
             
             // TODO 5 / 10 : Call game.checkCirclePosition() on your circles.
-           
+            game.checkCirclePosition(0);
+            game.checkCirclePosition(1);
+            game.checkCirclePosition(2);
+            game.checkCirclePosition(3);
+            game.checkCirclePosition(4);
 
             // TODO 9 : Iterate over the array
            
